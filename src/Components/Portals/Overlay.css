@@ -1,0 +1,22 @@
+.global-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  transition: visibility .7s .2s, opacity .7s .2s;
+  -webkit-transition: visibility .7s .2s, opacity .7s .2s;
+  -moz-transition: visibility .7s .2s, opacity .7s .2s;
+  -ms-transition: visibility .7s .2s, opacity .7s .2s;
+  -o-transition: visibility .7s .2s, opacity .7s .2s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  pointer-events: all;
+}
+
+.global-overlay.active {
+  visibility: visible;
+  opacity: 0.6;
+}

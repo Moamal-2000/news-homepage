@@ -1,0 +1,19 @@
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+header nav ul li a {
+  font-size: 16px;
+  color: var(--dark-grayish-blue);
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--soft-red);
+}

@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useContext, useState } from "react";
+import "./App.css";
+import Aside from "./Components/Aside";
+import Cards from "./Components/Cards";
+import Header from "./Components/Header";
+import Main from "./Components/Main";
+import Overlay from "./Components/Portals/Overlay";
+
+const navContext = createContext();
 
 function App() {
+  const [isNavListActive, setIsNavListActive] = useState(false);
+
+
+  const navData = {
+    isNavListActive,
+    setIsNavListActive,
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <navContext.Provider value={navData}>
+        <Overlay />
+
+        <div className="container">
+          <Header />
+
+          <div className="main-content">
+            <Main />
+            <Aside />
+          </div>
+          <Cards />
+        </div>
+      </navContext.Provider>
     </div>
   );
 }
 
 export default App;
+
+
+export const useNavDataContext = () => {
+  return useContext(navContext)
+}

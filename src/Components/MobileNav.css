@@ -1,0 +1,63 @@
+
+header .mobile-nav {
+  visibility: hidden;
+}
+
+header .mobile-nav {
+  background-color: #fff;
+  height: 100vh;
+  padding-top: 110px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: visibility .5s, right .5s;
+  -webkit-transition: visibility .5s, right .5s;
+  -moz-transition: visibility .5s, right .5s;
+  -ms-transition: visibility .5s, right .5s;
+  -o-transition: visibility .5s, right .5s;
+  right: -100%;
+}
+
+header .mobile-nav.active {
+  visibility: visible;
+  right: 0;
+}
+
+header .mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+header .mobile-nav ul li a {
+  display: block;
+  color: var(--very-dark-blue);
+  font-weight: 500;
+  width: 260px;
+  padding: 10px 20px;
+}
+
+header .mobile-nav .close-menu-icon {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+
+header .close-menu-icon:hover {
+  opacity: 0.5;
+}
