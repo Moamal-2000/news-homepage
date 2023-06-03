@@ -6,7 +6,7 @@ import MobileNav from "./MobileNav";
 import Nav from "./Nav";
 
 const Header = () => {
-  const [navSwitcher, setNavSwitcher] = useState(<Nav />);
+  const [navSwitcher, setNavSwitcher] = useState(true);
   const navData = useNavDataContext()
 
 
@@ -28,11 +28,11 @@ const Header = () => {
   useEffect(() => {
     function showNavList() {
       if (window.innerWidth >= 768) {
-        setNavSwitcher(<Nav />);
+        setNavSwitcher(true);
         navData.setIsNavListActive(prevValue => false)
       }
       else {
-        setNavSwitcher(iconMenu);
+        setNavSwitcher(false);
       }
     }
     showNavList();
@@ -43,7 +43,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", showNavList);
     };
-  }, []);
+  }, [navData]);
 
 
 
@@ -53,7 +53,7 @@ const Header = () => {
         <img src={logoImg} alt="" />
       </div>
 
-      {navSwitcher}
+      {navSwitcher ? <Nav /> : iconMenu}
       <MobileNav />
     </header>
   );
